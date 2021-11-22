@@ -39,7 +39,7 @@ class List extends React.Component { //creating class
 
 
   addToList = () => this.setState(
-    prevState => ({ ...prevState, list:this.state.list.push({}), text:"Adding"})
+    prevState => ({ ...prevState, /*list:this.state.list.push({}),*/ text:"Adding"})
   )
 
   change = () => this.setState(
