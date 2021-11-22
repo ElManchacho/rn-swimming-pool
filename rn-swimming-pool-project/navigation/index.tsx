@@ -9,10 +9,10 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
+import Colors from '../constants/Colors';
 
 //#region import components
 
-import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ExoEightScreen from '../screens/ExoEightScreen';
 import ExoElevenScreen from '../screens/ExoElevenScreen';
@@ -29,6 +29,7 @@ import ExoThirteenScreen from '../screens/ExoThirteenScreen';
 import ExoThreeScreen from '../screens/ExoThreeScreen';
 import ExoTwelveScreen from '../screens/ExoTwelveScreen';
 import ExoTwoScreen from '../screens/ExoTwoScreen';
+import MenuScreen from '../screens/MenuScreen';
 
 //#endregion
 
@@ -84,10 +85,10 @@ function BottomTabNavigator() {
       }}>
         
       <BottomTab.Screen
-        name="ExoOne"
-        component={ExoOneScreen}
-        options={({ navigation }: RootTabScreenProps<'ExoOne'>) => ({
-          title: 'Exo One',
+        name="Menu"
+        component={MenuScreen}
+        options={({ navigation }: RootTabScreenProps<'Menu'>) => ({
+          title: 'Menu',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
@@ -106,11 +107,19 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
+      name="ExoOne"
+      component={ExoOneScreen}
+      options={{
+        title: 'Exo One',
+        tabBarIcon: ({ color }) => <TabBarIcon name="code"  color={color} />,
+      }}
+    />
+      <BottomTab.Screen
       name="ExoTwo"
       component={ExoTwoScreen}
       options={{
         title: 'Exo Two',
-        tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        tabBarIcon: ({ color }) => <TabBarIcon name="code"  color={color} />,
       }}
     />
     <BottomTab.Screen

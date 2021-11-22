@@ -1,24 +1,16 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
-export default function ExoThreeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Exo Three</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ExoThreeScreen.tsx" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ //adding style
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(128,128,128,0.1)',
   },
   title: {
     fontSize: 20,
@@ -30,3 +22,32 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 });
+
+class Counter extends React.Component { //creating class
+  state = { count: 0 };
+
+  setCount = () => this.setState(
+    prevState => ({ ...prevState, count: this.state.count + 1 })
+  )
+
+  render() {
+    const { count } = this.state;
+    return (
+      <View style={styles.container}>
+        <Text>{count}</Text>
+        <View>
+          <Button
+          onPress={this.setCount}
+          title="Button"
+          color="rgb(33,150,243)"/>
+        </View>
+      </View>
+    );
+  }
+}
+
+const ExoThreeScreen = () => ( //putting class into tag
+  <Counter />
+);
+
+export default ExoThreeScreen; //exporting the newly created tag

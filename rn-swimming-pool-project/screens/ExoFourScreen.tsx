@@ -1,32 +1,63 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
-export default function ExoFourScreen() {
+const Stack = createNativeStackNavigator();
+
+function Img(){
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Exo Four</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ExoFourScreen.tsx" />
+    <View>
+      <Image
+      source={require('../assets/images/Exo4.png')}/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+function Footer(){
+  return (
+    <View style={{justifyContent:'flex-end', flex:2}}>
+      <Text>Footer</Text>
+    </View>
+  );
+}
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Hello</Text>
+      <Img/>
+      <Footer/>
+    </View>
+    
+  );
+}
+
+
+
+function App() {
+
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Header"
+          component={HomeScreen}
+          options={{ 
+            title: 'Header', 
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: 'rgb(0,0,0)',
+            },
+            headerTintColor:'rgb(255,255,255)',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;

@@ -15,6 +15,11 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: {
         screens: {
+          Menu: {
+            screens: {
+              MenuScreen: 'menu',
+            },
+          },
           ExoOne: {
             screens: {
               ExoOneScreen: 'one',

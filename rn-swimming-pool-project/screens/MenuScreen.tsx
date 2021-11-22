@@ -3,11 +3,11 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-//darkColor="rgba(128,128,128,0.1)"
-export default function ExoOneScreen() {
+
+export default function MenuScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello</Text>
+      <Text style={styles.title}>Menu</Text>
     </View>
   );
 }
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(128,128,128,0.1)',
   },
   title: {
-    fontSize: 50,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   separator: {
     marginVertical: 30,
